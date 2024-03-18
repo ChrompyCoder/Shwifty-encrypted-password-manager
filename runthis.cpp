@@ -130,11 +130,11 @@ string decrypt_password(string dpass, string pkey, fstream& passw){
 		if( k>maxk){ k=0;}
 		ascii1 = dpass[i];
 		ascii2 = pkey[k];
-		if( ascii1 == ascii2){continue;} 
 		if(dpass[i+1] == '~'){
 			dpass.erase(i+1, 1);
 			dpass[i]= char((ascii1*2)+1 - ascii2);
 		}
+		else if( ascii1 == ascii2){continue;} 
 		else{
 			dpass[i]=char((ascii1*2)- ascii2);
 		}
