@@ -2,7 +2,7 @@
 #include<string.h>
 #include<string>
 #include<fstream>
-#include "/mnt/c/Users/Rockstar/Desktop/hash-library-master/sha3.cpp"
+#include "sha3.cpp"
 using namespace std;
 void first_timer(fstream&);
 void new_app(string, fstream& );
@@ -61,7 +61,8 @@ void checker(string pkey, fstream& passw){
 	passw.seekg(0, ios::beg);
 	passw>>encheck;
 	if(encheck != pkey){
-		abort();
+		cout<<"<Password rejected!>";
+		display(passw);
 	}
 	cout<<"<verified>"<<endl;
 }
@@ -116,8 +117,13 @@ void parse(char app_nm, string pkey, fstream& passw){
 			cout<<"Username: "<<decrypt_password(usernm, pkey, passw)<<endl;
 			cout<<"Password: "<<decrypt_password(pw, pkey, passw)<<endl;
 			exit(1);
-	}	
-}}
+		}	
+		if (passw.peek() == EOF) {
+    			cout<<"The appllication data you are seeking for, does not exist yet or the service for that app is not available yet"<<endl;
+			exit(1);
+  		} 
+	}
+}
 string decrypt_password(string dpass, string pkey, fstream& passw){
 	int ascii1, ascii2, maxk=pkey.length();
 	for(int i=0, k=0; dpass[i]!='\0'; i++,k++){
