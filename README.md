@@ -24,6 +24,7 @@ Now, chill and beep it?
 - Add code to store custom application password.
 - Add a block which prompts you to recheck the password of the application you just entered for storing.
 - Provision to edit passwords/username.
-Feel free to throw a `Pull Request`.
+
+Feel free to throw a [Pull Request](https://github.com/ChrompyCoder/Shwifty-encrypted-password-manager/compare).
 
 ### If you want to know the issues i faced while building this, check out this [blog](https://chrompycoder.github.io/blog/01.html).
